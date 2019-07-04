@@ -1,0 +1,16 @@
+{
+  "name": "jsplayground",
+  "version": "1.0.0",
+  "description": "A place for me to try out JS features and Quirks",
+  "main": "./src/printFibonacci.js",
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha ./test/",
+    "play": "node ./src/printFibonacci.js"
+  },
+  "author": "xk0der (Amit Singh)",
+  "license": "MIT",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.1.4"
+  }
+}
