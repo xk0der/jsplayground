@@ -12,5 +12,11 @@
   "dependencies": {
     "chai": "^4.2.0",
     "mocha": "^6.1.4"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.2",
+    "eslint": "^6.0.1",
+    "gulp": "^4.0.2",
+    "gulp-exec": "^3.0.2"
   }
 }

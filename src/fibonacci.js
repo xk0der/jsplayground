@@ -1,5 +1,7 @@
 /**
  * @description: Node module to generator Fibonacci sequence using genertors and promise.
+ * Sequence starts at "1"
+ * Example 1 1 2 3 5 8 13 21 34 55 ...
  */
 
 /**
@@ -22,7 +24,7 @@ class Fibonacci {
      * @description: returns a generator object which would give the next Fibonacci term on each .next() invocation.
      */
     *generator() {
-        let retval = this.#next;
+        const retval = this.#next;
         this.#next = this.#next + this.#b; 
         this.#b  = retval;
         yield retval;
@@ -46,7 +48,7 @@ class Fibonacci {
     nthTerm(n) {
         this.reset();
         return new Promise(  (resolve, reject) => {
-            let gen = this.generator();
+            const gen = this.generator();
             if(n <= 0) {
                 reject("n must be 1 or higher")
             }
@@ -61,9 +63,9 @@ class Fibonacci {
                     reject("Reached infinity while calculating next term!");
                 }
                 this.#cache[i+1] = nextTerm.value; 
-            };
+            }
 
-            let nextTerm = gen.next();
+            const nextTerm = gen.next();
             if(nextTerm.value === Infinity) {
                 reject("Reached infinity!");
             } else {
@@ -71,6 +73,6 @@ class Fibonacci {
             }
         });
     }
-};
+}
 
 module.exports.Fibonacci = Fibonacci;

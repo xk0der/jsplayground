@@ -3,7 +3,7 @@
  * @author: xk0der (Amit Singh)
  */
 
-let Fibonacci = require("./fibonacci.js").Fibonacci;
+const Fibonacci = require("./fibonacci.js").Fibonacci;
 
 /**
  * @function: th()
@@ -11,7 +11,7 @@ let Fibonacci = require("./fibonacci.js").Fibonacci;
  * @param int n 
  */
 function th(n) {
-    let digit = (n+"").substr((n+"").length - 1, 1);
+    const digit = (n+"").substr((n+"").length - 1, 1);
     switch(digit * 1) {
         case 1:
                 return n + "st";
@@ -25,7 +25,7 @@ function th(n) {
  
 }
 
-let fib = new Fibonacci();
+const fib = new Fibonacci();
 
 fib.nthTerm(100).then((v) => {
     console.log( th(100) + " term = " + v)
@@ -36,7 +36,7 @@ fib.nthTerm(100).then((v) => {
     let gen = fib.generator();
     for (let i = 0; i < 10; ++i) {
         console.log(gen.next().value);
-    };
+    }
 }).catch((reason) => {
     console.log("Failed with : " + reason);
 });

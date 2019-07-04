@@ -2,10 +2,13 @@
  * @description: Test fibonacci generator.
  */
 
-let Fibonacci = require("../src/fibonacci.js").Fibonacci;
-let chai = require("chai");
+const Fibonacci = require("../src/fibonacci.js").Fibonacci;
+const chai = require("chai");
 
-let fib = new Fibonacci();
+const fib = new Fibonacci();
+
+// Mark describe() and it() as global so that ESLint doesn't complain about these being undefined.
+/* global describe, it */
 
 describe("fib", () => {
     it("Should be not null", () => {
@@ -30,7 +33,7 @@ fib.nthTerm(10).then( (v) => {
     });
 } );
 
-let gen = fib.generator();
+const gen = fib.generator();
 
 describe("gen.next().value", () => {
     it("should be 89", () => {
