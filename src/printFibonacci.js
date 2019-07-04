@@ -5,6 +5,11 @@
 
 let Fibonacci = require("./fibonacci.js").Fibonacci;
 
+/**
+ * @function: th()
+ * @description: Given a number, decides the ordinal indicator for it. 
+ * @param int n 
+ */
 function th(n) {
     let digit = (n+"").substr((n+"").length - 1, 1);
     switch(digit * 1) {

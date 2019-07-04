@@ -2,7 +2,12 @@
  * @description: Node module to generator Fibonacci sequence using genertors and promise.
  */
 
-
+/**
+ * @class: Fibonacci
+ * @description: Generates fibonacci sequence and caches results as well.
+ * But there is no upper limit to the cache at the moment, which may result in high memory usage.
+ * Ideal implementation should have cache size limit, and manegment can be done by say overwritting least accessed elements.
+ */
 class Fibonacci {
     #b = 0;
     #next = 1;
@@ -12,6 +17,10 @@ class Fibonacci {
     constructor() {
     }
 
+    /**
+     * @function: generator()
+     * @description: returns a generator object which would give the next Fibonacci term on each .next() invocation.
+     */
     *generator() {
         let retval = this.#next;
         this.#next = this.#next + this.#b; 
@@ -20,14 +29,23 @@ class Fibonacci {
         yield* this.generator();
     }
 
+    /**
+     * @function: reset()
+     * @description: reset sequence back to inital state.
+     */
     reset() {
         this.#b = 0;
         this.#next = 1;
     }
 
+    /**
+     * @function: nthTerm()
+     * @description: Returns the n'th term from the Fibonacci sequence 
+     * @param int n - term position within the sequence (1 being the first term)
+     */
     nthTerm(n) {
         this.reset();
-        var p = new Promise(  (resolve, reject) => {
+        return new Promise(  (resolve, reject) => {
             let gen = this.generator();
             if(n <= 0) {
                 reject("n must be 1 or higher")
@@ -52,7 +70,6 @@ class Fibonacci {
                 resolve(nextTerm.value);
             }
         });
-        return p;
     }
 };
 
